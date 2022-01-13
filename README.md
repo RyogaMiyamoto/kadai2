@@ -43,6 +43,6 @@ cat /dev/myled0         //fishの表示
 **fish** が表示され続けるので、controlキーとCを同時に押すことでfish表示画面から抜け出すことができます
 
 # 実演動画
-[Youtube・課題2](https://)
+[Youtube・課題2](https://youtu.be/CH7Q0QQwE90)
 
 # License
