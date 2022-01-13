@@ -3,12 +3,14 @@
 # ロボットシステム学・課題２
 課題２はROSを用いてパッケージを作成します。  
 
+
 # 概要
 パッケージの作成  
 ノードの作成  
 ノードの実行  
 count.pyの実行  
 twice.pyの実行  
+Ubuntuを4端末を使い、実行を確認します。
 
 
 # 使用環境
@@ -55,8 +57,61 @@ echo $ROS_PACKAGE_PATH
 
 **/home/ubuntu/catkin_ws/src:/opt/ros/noetic/share**と表示されれば、ROS_PACKAGE_PATHにcatkin_ws/srcがセットされている状態だと確認できる
 
-### 【実行】
-ああああ  
+### 【count.pyの実行】
+以下の順番でコマンドを実行してください
+```
+端末１　roscore
+端末２  chmod +x count.py
+端末２  rosrun mypkg count.py
+端末３  rostopic list         //以下の３つのトピックがあるか確認
+/count_up
+/rosout
+/rosout_agg
+端末３  rostopic echo /count_up
+```
+
+### 【twice.pyの実行1】
+以下の順番でコマンドを実行してください
+```
+端末３  chmod +x twice.py
+端末３  rosrun mypkg twice.py
+端末３  vi twice.py           //ここで実行２の為にコードを書き換える
+```
+
+以下のコードに書き換える
+```
+#!/usr/bin/env python3
+import rospy
+from std_msgs.msg import Int32
+
+n = 0
+
+def cb(message):
+    global n
+    n = message.data*2
+
+if __name__ == '__main__': 
+    rospy.init_node('twice')
+    sub = rospy.Subscriber('count_up', Int32, cb) 
+    pub = rospy.Publisher('twice', Int32, queue_size=1) 
+    rate = rospy.Rate(10)
+    while not rospy.is_shutdown():
+        pub.publish(n)
+        rate.sleep()
+```
+
+### 【twice.pyの実行2】
+以下の順番でコマンドを実行してください
+```
+端末３  rosrun mypkg twice.py
+端末４  rostopic list        //以下の4つのトピックがあるか確認
+/count_up
+/rosout
+/rosout_agg
+/twice
+端末４  rostopic echo /twice
+```
+
 
 
 # 実演動画
