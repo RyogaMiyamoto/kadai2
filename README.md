@@ -3,7 +3,6 @@
 # ロボットシステム学・課題２
 課題２はROSを用いてパッケージを作成します。  
 
-
 # 概要
 パッケージの作成  
 ノードの作成  
@@ -11,7 +10,6 @@
 count.pyの実行  
 twice.pyの実行  
 Ubuntuを4端末を使い、実行を確認します。
-
 
 # 使用環境
 - Raspberry Pi 3 Model B  
@@ -69,6 +67,7 @@ echo $ROS_PACKAGE_PATH
 /rosout_agg
 端末３  rostopic echo /count_up
 ```
+**rostopic echo /count_up**を実行すると1秒間に10ずつ数字が上がっていきます
 
 ### 【twice.pyの実行1】
 以下の順番でコマンドを実行してください
@@ -77,8 +76,23 @@ echo $ROS_PACKAGE_PATH
 端末３  rosrun mypkg twice.py
 端末３  vi twice.py           //ここで実行２の為にコードを書き換える
 ```
+**rosrun mypkg twice.py**を実行すると**count.pyの実行**で得た数字を2倍にして表示します
 
-以下のコードに書き換える
+**twice.pyの実行1**の時点ではtwice.pyのコードは以下のようになっています
+```
+import rospy
+from std_msgs.msg import Int32
+
+def cb(message):
+    rospy.loginfo(message.data*2)
+
+if __name__ == '__main__':
+    rospy.init_node('twice')
+    sub = rospy.Subscriber('count_up', Int32, cb)
+    rospy.spin()
+```
+
+twice.pyを以下のコードに書き換える
 ```
 #!/usr/bin/env python3
 import rospy
@@ -111,7 +125,7 @@ if __name__ == '__main__':
 /twice
 端末４  rostopic echo /twice
 ```
-
+**twice.pyの実行1**で得た数字の2倍の数字が表示されます
 
 
 # 実演動画
@@ -119,3 +133,8 @@ if __name__ == '__main__':
 
 # License
 BSD 2-Clause "Simplified" License
+
+# 参考
+https://ryuichiueda.github.io/robosys2020/lesson10_ros.html#/
+https://youtu.be/PL85Pw_zQH0
+
