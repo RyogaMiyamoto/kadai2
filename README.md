@@ -135,6 +135,6 @@ if __name__ == '__main__':
 BSD 2-Clause "Simplified" License
 
 # 参考
-https://ryuichiueda.github.io/robosys2020/lesson10_ros.html#/
+https://ryuichiueda.github.io/robosys2020/lesson10_ros.html#/  
 https://youtu.be/PL85Pw_zQH0
 
