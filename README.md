@@ -26,7 +26,7 @@ cd ros_setup_scripts_Ubuntu20.04_server
 roscore            //立ち上がりの確認
 ```
 ## 【ワークスペースの準備】
-### ディレクトリの作成
+### 【ディレクトリの作成】
 ```
 cd
 mkdir -p catkin_ws/src
@@ -53,8 +53,9 @@ source ~/.bashrc
 echo $ROS_PACKAGE_PATH
 ```
 
-**/home/ubuntu/catkin_ws/src:/opt/ros/noetic/share**と表示されれば、ROS_PACKAGE_PATHにcatkin_ws/srcがセットされている状態だと確認できる
+**/home/ubuntu/catkin_ws/src:/opt/ros/noetic/share**と表示されれば、ROS_PACKAGE_PATHにcatkin_ws/srcがセットされている状態だと確認できる  
 
+## 【プログラムの実行】
 ### 【count.pyの実行】
 以下の順番でコマンドを実行してください
 ```
