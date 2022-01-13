@@ -17,11 +17,46 @@ twice.pyの実行
 - ROS  
 
 # 操作方法
-## 【インストールの方法】
+## 【ROSのインストール】
 ```
-git clone git@
+git clone https://github.com/ryuichiueda/ros_setup_scripts_Ubuntu20.04_server.git
+cd ros_setup_scripts_Ubuntu20.04_server
+./step0.bash　　　　//実行  
+./step1.bash       //実行  　　
+roscore            //立ち上がりの確認
+```
+## 【ワークスペースの準備】
+### ディレクトリの作成
+```
+cd
+mkdir -p catkin_ws/src
+cd ~/catkin_ws/src
+catkin_init_workspace 
+```
+
+上記のコマンドを実行すると以下のように表示される
 
 ```
+Creating symlink "/home/ubuntu/catkin_ws/src/CMakeLists.txt" pointing to 
+"/opt/ros/melodic/share/catkin/cmake/toplevel.cmake"  
+```
+
+### 【環境のビルド】
+```
+cd ~/catkin_ws
+catkin_make
+source ~/.bashrc
+```
+
+上記のコマンドを実行して、ROS_PACKAGE_PATHにcatkin_ws/srcがセットされているかを以下のコマンドで確認する
+```
+echo $ROS_PACKAGE_PATH
+```
+
+**/home/ubuntu/catkin_ws/src:/opt/ros/noetic/share**と表示されれば、ROS_PACKAGE_PATHにcatkin_ws/srcがセットされている状態だと確認できる
+
+### 【実行】
+ああああ  
 
 
 # 実演動画
