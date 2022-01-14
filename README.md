@@ -98,7 +98,7 @@ twice.pyを以下のコードに書き換える
 #!/usr/bin/env python3
 
 #BSD 2-Clause License
-#Copyright (c) 2022, RyogaMiyamoto All rights reserved.
+#Copyright (c) 2022, Ryuichi Ueda All rights reserved.
 
 import rospy
 from std_msgs.msg import Int32
