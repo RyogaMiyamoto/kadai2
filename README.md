@@ -96,6 +96,10 @@ if __name__ == '__main__':
 twice.pyを以下のコードに書き換える
 ```
 #!/usr/bin/env python3
+
+#BSD 2-Clause License
+#Copyright (c) 2022, RyogaMiyamoto All rights reserved.
+
 import rospy
 from std_msgs.msg import Int32
 
@@ -133,7 +137,7 @@ if __name__ == '__main__':
 [Youtube・課題2](https://youtu.be/CH7Q0QQwE90)
 
 # License
-BSD 2-Clause "Simplified" License
+BSD 2-Clause License
 
 # 参考
 https://ryuichiueda.github.io/robosys2020/lesson10_ros.html#/  
